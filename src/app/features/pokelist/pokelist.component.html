@@ -1,0 +1,6 @@
+<mat-nav-list>
+    <mat-list-item *ngFor="let mon of results; let i = index">
+        <img class="sprite" [src]="getSprite(i + 1)">
+        <a matLine [routerLink]="mon.name">#{{i + 1 | pokemonId }} {{ mon.name | capitalize }}</a>
+    </mat-list-item>
+</mat-nav-list>

@@ -1,0 +1,10 @@
+<mat-list *ngIf="pokemonDetails" role="list">
+    <mat-list-item [class]="item.stat.name" *ngFor="let item of pokemonDetails.stats" role="listitem">
+        <div class="stat-name">{{item.stat.name | statName}}:</div>
+        {{item.base_stat}}
+    </mat-list-item>
+    <mat-list-item>
+        <div class="stat-name">Total:</div>
+        {{pokemonDetails.stats | statTotal}}
+    </mat-list-item>
+</mat-list>

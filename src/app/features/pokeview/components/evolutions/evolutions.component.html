@@ -1,0 +1,6 @@
+<div *ngIf="evolutionMap.size > 0" class="container">
+    <div class="evo" *ngFor="let mon of evolutionMap | keyvalue;">
+        <div class="title" (click)="goToPokemon(mon.value)">#{{mon.key | pokemonId }} {{ mon.value | capitalize }}</div>
+        <img class="sprite" [src]="getSprite(mon.key)">
+    </div>
+</div>

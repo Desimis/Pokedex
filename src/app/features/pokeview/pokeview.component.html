@@ -1,0 +1,37 @@
+<div class="loader" *ngIf="!pokemonDetails; else showDetails">
+    <mat-spinner></mat-spinner>
+</div>
+<ng-template #showDetails>
+    <div *ngIf="pokemonDetails">
+        <div class="details">
+            <div class="general">
+                <div class="name-id">
+                    <h2>{{pokemonDetails.name | capitalize}}</h2>
+                    <h2>#{{pokemonDetails.id | pokemonId}}</h2>
+                </div>
+                <div class="types">
+                    <div *ngFor="let types of pokemonDetails.types" class="{{types.type.name}} type">
+                        {{types.type.name}}
+                    </div>
+                </div>
+            </div>
+            <div class="sprite">
+                <img [src]="pokemonDetails.sprites.front_default" />
+            </div>
+        </div>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="About">
+                <app-about [species]="species" [pokemonDetails]="pokemonDetails"></app-about>
+            </mat-tab>
+            <mat-tab label="Stats">
+                <app-stats [pokemonDetails]="pokemonDetails"></app-stats>
+            </mat-tab>
+            <mat-tab label="Evolutions">
+                <app-evolutions *ngIf="evolutionChain" [evolutions]="evolutionChain"></app-evolutions>
+            </mat-tab>
+            <mat-tab label="Moves">
+                <app-moves [pokemonDetails]="pokemonDetails"></app-moves>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</ng-template>

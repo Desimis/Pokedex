@@ -1,0 +1,37 @@
+<div *ngIf="pokemonDetails && species">
+    <div class="abilities-container">
+        <div class="header">Abilities</div>
+        <div class="abilities-list">
+            <div (click)="navigateToAbility.emit(item.ability.name)" *ngFor="let item of pokemonDetails?.abilities" class="ability">
+                {{item.ability.name | capitalize}}
+            </div>
+        </div>
+        <mat-divider></mat-divider>
+    </div>
+    <div *ngIf="species" class="flavor-text">
+        <div class="header">Description</div>
+        {{species.flavor_text_entries | flavourText}}
+    </div>
+    <mat-divider></mat-divider>
+    <div class="height-weight">
+        <div>Height:</div> {{pokemonDetails.height / 10}}m
+    </div>
+    <div class="height-weight">
+        <div>Weight:</div> {{pokemonDetails.weight / 10}}kg
+    </div>
+    <div class="height-weight">
+        <div>Egg Groups:</div> <span class="egg"> {{species?.egg_groups | eggGroup}}</span>
+    </div>
+    <div class="height-weight">
+        <div>Growth Rate:</div> <span class="egg"> {{species?.growth_rate?.name}}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="weaknesses">
+        <div class="header">Weaknesses</div>
+        <div class="weakness-container">
+            <div *ngFor="let item of pokemonDetails | weaknesses" class="{{item}} type">
+            {{item}}
+            </div>
+        </div>
+    </div>
+</div>

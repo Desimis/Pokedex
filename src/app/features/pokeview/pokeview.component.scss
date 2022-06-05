@@ -1,0 +1,41 @@
+.loader {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+
+    .general {
+        display: flex;
+        flex-direction: column;
+
+        .name-id {
+            display: flex;
+            padding-left: 1rem;
+            h2 {
+                margin-right: 1rem;
+            }
+        }
+
+        .types {
+            display: flex;
+            padding-left: 1rem;
+
+            .type {
+                padding: 0.5rem 1rem 0.5rem 1rem;
+                margin-right: 0.5rem;
+                border-radius: 10px;
+                color: white;
+                min-width: 63px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+}
+
